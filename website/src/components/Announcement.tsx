@@ -1,6 +1,6 @@
 import * as stylex from '@stylexjs/stylex'
 import { Fragment } from 'react'
-import { GITHUB_URL, NAME, UNRELEASED } from '#/data/site'
+import { GITHUB_URL, UNRELEASED } from '#/data/site'
 import { space } from '../tokens.stylex'
 import { button, Chevron } from './Button'
 import { motion, stagger } from './ChartParts'
