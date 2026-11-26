@@ -1,0 +1,8 @@
+// Cloudflare Workers, static assets only: the prerendered pages in .output/public, no server
+// code. `pnpm build` (or `VITE_ANNOUNCE=1 pnpm build` for the announcement) first, then
+// `npx wrangler deploy`. See "Deploying on Cloudflare" in README.md.
+{
+  "name": "hinny-site",
+  "compatibility_date": "2026-11-01",
+  "assets": { "directory": "./.output/public" }
+}

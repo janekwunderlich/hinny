@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 456" width="920" height="456" fill="none">
+  <defs>
+    <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="0.9" fill="#e9ebef"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 Z" fill="#6e7781"/>
+    </marker>
+    <marker id="arr-dark" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 Z" fill="#24292f"/>
+    </marker>
+    <marker id="arr-iris" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 Z" fill="#4f5ef0"/>
+    </marker>
+    <marker id="arr-clover" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 Z" fill="#0e8a50"/>
+    </marker>
+    <marker id="arr-rose" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 Z" fill="#d63b64"/>
+    </marker>
+  </defs>
+  <style>
+    .zone { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.08em; fill: #57606a; }
+    .hd { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 13px; font-weight: 600; fill: #111827; }
+    .hd-sm { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12px; font-weight: 600; fill: #111827; }
+    .sub { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 400; fill: #57606a; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 11px; font-weight: 500; fill: #111827; }
+    .edge { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 10px; font-weight: 500; fill: #57606a; }
+    .metric { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 20px; font-weight: 700; letter-spacing: -0.02em; fill: #111827; }
+  </style>
+  <rect width="920" height="456" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1"/>
+  <rect x="1" y="1" width="918" height="454" rx="7" fill="url(#dots)"/>
+  <line x1="20" y1="294" x2="900" y2="294" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="6 4"/>
+  <rect x="486" y="275" width="184" height="16" rx="2" fill="#ffffff"/>
+  <text x="578" y="287" text-anchor="middle" class="zone">IN-PROCESS MEMORY (RAM)</text>
+  <rect x="486" y="299" width="192" height="16" rx="2" fill="#ffffff"/>
+  <text x="582" y="311" text-anchor="middle" class="zone">LOCAL DISK (MMAP + FILES)</text>
+  <line x1="364" y1="22" x2="364" y2="282" stroke="#d0d7de" stroke-width="1" stroke-dasharray="3 4"/>
+  <text x="32" y="34" class="zone">WRITE PATH (1 WRITER LOCK)</text>
+  <text x="382" y="34" class="zone">QUERY PATH (LOCK-FREE, PARALLEL)</text>
+  <rect x="32" y="54" width="118" height="46" rx="4" fill="#ffffff" stroke="#24292f" stroke-width="1.4"/>
+  <text x="91" y="75" text-anchor="middle" class="hd-sm">Write Batch</text>
+  <text x="91" y="90" text-anchor="middle" class="edge">atomic seq N</text>
+  <rect x="196" y="54" width="144" height="58" rx="4" fill="#eef0fe" stroke="#4f5ef0" stroke-width="1.5"/>
+  <text x="268" y="76" text-anchor="middle" class="hd-sm">Active Memtable</text>
+  <text x="268" y="92" text-anchor="middle" class="edge">immutable chunks</text>
+  <text x="268" y="104" text-anchor="middle" class="edge" style="fill:#4f5ef0">live immediately</text>
+  <rect x="196" y="166" width="144" height="50" rx="4" fill="#f3f4f6" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="268" y="188" text-anchor="middle" class="hd-sm">Frozen Memtable</text>
+  <text x="268" y="203" text-anchor="middle" class="edge">20k docs / 256 MiB</text>
+  <path d="M 150 77 H 193" stroke="#24292f" stroke-width="1.4" marker-end="url(#arr-dark)"/>
+  <path d="M 91 100 V 334" stroke="#24292f" stroke-width="1.4" marker-end="url(#arr-dark)"/>
+  <rect x="49.8" y="202" width="82.4" height="14" rx="2" fill="#ffffff"/>
+  <text x="91" y="212.5" text-anchor="middle" class="edge" style="fill:#57606a">append CRC32</text>
+  <path d="M 268 112 V 163" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <rect x="245.4" y="130" width="45.2" height="14" rx="2" fill="#ffffff"/>
+  <text x="268" y="140.5" text-anchor="middle" class="edge" style="fill:#57606a">freeze</text>
+  <path d="M 268 216 V 334" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <rect x="229.9" y="248" width="76.2" height="14" rx="2" fill="#ffffff"/>
+  <text x="268" y="258.5" text-anchor="middle" class="edge" style="fill:#57606a">async flush</text>
+  <rect x="384" y="114" width="110" height="58" rx="4" fill="#ffffff" stroke="#4f5ef0" stroke-width="1.5"/>
+  <text x="439" y="137" text-anchor="middle" class="hd-sm">Arc&lt;View&gt;</text>
+  <text x="439" y="152" text-anchor="middle" class="edge">seq N snapshot</text>
+  <text x="439" y="164" text-anchor="middle" class="edge" style="fill:#4f5ef0">lock-free</text>
+  <path d="M 340 83 H 439 V 111" stroke="#4f5ef0" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arr-iris)"/>
+  <path d="M 326 364 H 439 V 175" stroke="#4f5ef0" stroke-width="1.2" stroke-dasharray="3 3" marker-end="url(#arr-iris)"/>
+  <rect x="391.6" y="238" width="94.8" height="14" rx="2" fill="#ffffff"/>
+  <text x="439" y="248.5" text-anchor="middle" class="edge" style="fill:#4f5ef0">zero-copy mmap</text>
+  <rect x="536" y="54" width="154" height="46" rx="4" fill="#fef7e6" stroke="#c97a00" stroke-width="1.4"/>
+  <text x="613" y="74" text-anchor="middle" class="hd-sm">Full Text (BM25)</text>
+  <text x="613" y="89" text-anchor="middle" class="edge">block-max MaxScore</text>
+  <rect x="536" y="118" width="154" height="46" rx="4" fill="#eef0fe" stroke="#4f5ef0" stroke-width="1.4"/>
+  <text x="613" y="138" text-anchor="middle" class="hd-sm">Vectors (RaBitQ)</text>
+  <text x="613" y="153" text-anchor="middle" class="edge">1-bit FastScan + f16</text>
+  <rect x="536" y="182" width="154" height="46" rx="4" fill="#e9f8f0" stroke="#0e8a50" stroke-width="1.4"/>
+  <text x="613" y="202" text-anchor="middle" class="hd-sm">Learned Sparse</text>
+  <text x="613" y="217" text-anchor="middle" class="edge">dot product postings</text>
+  <path d="M 494 141 H 514 M 514 77 V 205 M 514 77 H 533 M 514 141 H 533 M 514 205 H 533" stroke="#24292f" stroke-width="1.3"/>
+  <path d="M 526 77 H 533" stroke="#24292f" stroke-width="1.3" marker-end="url(#arr-dark)"/>
+  <path d="M 526 141 H 533" stroke="#24292f" stroke-width="1.3" marker-end="url(#arr-dark)"/>
+  <path d="M 526 205 H 533" stroke="#24292f" stroke-width="1.3" marker-end="url(#arr-dark)"/>
+  <rect x="536" y="246" width="154" height="32" rx="4" fill="#fdeef2" stroke="#d63b64" stroke-width="1.3"/>
+  <text x="613" y="266" text-anchor="middle" class="hd-sm" style="fill:#d63b64">Columnar Filter</text>
+  <path d="M 613 246 V 231" stroke="#d63b64" stroke-width="1.2" marker-end="url(#arr-rose)"/>
+  <rect x="720" y="114" width="76" height="58" rx="4" fill="#ffffff" stroke="#24292f" stroke-width="1.4"/>
+  <text x="758" y="138" text-anchor="middle" class="hd-sm">Fusion</text>
+  <text x="758" y="153" text-anchor="middle" class="edge">min-max</text>
+  <text x="758" y="165" text-anchor="middle" class="edge">or RRF</text>
+  <path d="M 690 77 H 705 V 205 H 690 M 690 141 H 717" stroke="#24292f" stroke-width="1.3"/>
+  <path d="M 710 141 H 717" stroke="#24292f" stroke-width="1.3" marker-end="url(#arr-dark)"/>
+  <rect x="818" y="114" width="68" height="58" rx="4" fill="#eef0fe" stroke="#4f5ef0" stroke-width="1.5"/>
+  <text x="852" y="140" text-anchor="middle" class="hd-sm" style="fill:#4f5ef0">Hits</text>
+  <text x="852" y="156" text-anchor="middle" class="edge">top-k</text>
+  <path d="M 796 143 H 815" stroke="#24292f" stroke-width="1.4" marker-end="url(#arr-dark)"/>
+  <g>
+    <path d="M 36 344 L 36 396 A 55.0 8 0 0 0 146 396 L 146 344 Z" fill="#ffffff" stroke="#24292f" stroke-width="1.4"/>
+    <ellipse cx="91.0" cy="344" rx="55.0" ry="8" fill="#ffffff" stroke="#24292f" stroke-width="1.4"/>
+    <text x="91.0" y="374.0" text-anchor="middle" class="hd-sm">WAL</text>
+    <text x="91.0" y="389.0" text-anchor="middle" class="edge">wal-*.log</text>
+  </g>
+  <g>
+    <rect x="206" y="348" width="120" height="56" rx="4" fill="#f3f4f6" stroke="#6e7781" stroke-width="1.1"/>
+    <rect x="201" y="343" width="120" height="56" rx="4" fill="#f3f4f6" stroke="#6e7781" stroke-width="1.1"/>
+    <rect x="196" y="338" width="120" height="56" rx="4" fill="#ffffff" stroke="#24292f" stroke-width="1.4"/>
+    <text x="256.0" y="364.0" text-anchor="middle" class="hd-sm">Segments</text>
+    <text x="256.0" y="380.0" text-anchor="middle" class="edge">seg-N.seg</text>
+  </g>
+  <path d="M 326 376 H 474" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <rect x="361.9" y="368" width="76.2" height="14" rx="2" fill="#ffffff"/>
+  <text x="400" y="378.5" text-anchor="middle" class="edge" style="fill:#57606a">4-way merge</text>
+  <rect x="478" y="340" width="152" height="62" rx="4" fill="#ffffff" stroke="#24292f" stroke-width="1.4"/>
+  <text x="554" y="362" text-anchor="middle" class="hd-sm">Manifest &amp; Deletes</text>
+  <text x="554" y="378" text-anchor="middle" class="edge">manifest · schema</text>
+  <text x="554" y="392" text-anchor="middle" class="edge">seg-N.K.del (CRC32)</text>
+  <g>
+    <path d="M 786 344 L 786 396 A 66.0 8 0 0 0 918 396 L 918 344 Z" fill="#ffffff" stroke="#24292f" stroke-width="1.4"/>
+    <ellipse cx="852.0" cy="344" rx="66.0" ry="8" fill="#ffffff" stroke="#24292f" stroke-width="1.4"/>
+    <text x="852.0" y="374.0" text-anchor="middle" class="hd-sm">Text Blobs</text>
+    <text x="852.0" y="389.0" text-anchor="middle" class="edge">blobs-*.blob (zstd)</text>
+  </g>
+  <path d="M 852 336 V 175" stroke="#6e7781" stroke-width="1.2" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+  <rect x="798.4" y="248" width="107.2" height="14" rx="2" fill="#ffffff"/>
+  <text x="852" y="258.5" text-anchor="middle" class="edge" style="fill:#57606a">decompress top-k</text>
+  <text x="32" y="438" class="edge">Solid arrows: synchronous path   ·   Dashed arrows: async background or read-only mmap   ·   All files checksummed</text>
+</svg>

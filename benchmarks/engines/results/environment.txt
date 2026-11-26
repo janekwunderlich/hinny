@@ -1,0 +1,20 @@
+Linux 7.2.11-14-1-ARCH aarch64
+CPU(s):                                  10
+Model name:                              Icestorm-M1-Max
+Core(s) per socket:                      2
+CPU(s) scaling MHz:                      29%
+CPU max MHz:                             2064.0000
+Model name:                              Firestorm-M1-Max
+Core(s) per socket:                      8
+CPU(s) scaling MHz:                      94%
+CPU max MHz:                             3228.0000
+python 3.12.16
+faiss-cpu 1.16.0 | compile options: OPTIMIZE DD ARM_NEON 
+numpy 2.5.4
+hnswlib 0.8.0
+usearch 2.26.6
+numkong 7.8.7
+lancedb 0.41.0
+pyarrow 26.0.1
+h5py 3.16.0
+uv 0.13.8 (aarch64-unknown-linux-gnu)

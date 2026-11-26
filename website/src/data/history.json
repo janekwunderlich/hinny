@@ -1,0 +1,226 @@
+[
+ {
+  "commit": "24aa570",
+  "time": "2026-10-24T00:45:16-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "vector": 0.525,
+   "textPlain": 0.242,
+   "hybridPlain": 0.97
+  },
+  "ndcg": {
+   "vector": 0.29,
+   "textPlain": 0.2373,
+   "hybridPlain": 0.338
+  }
+ },
+ {
+  "commit": "0a79497",
+  "time": "2026-10-24T02:24:13-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "hybrid": 0.909,
+   "vector": 0.535,
+   "text": 0.193,
+   "textPlain": 0.237,
+   "hybridPlain": 1.012
+  },
+  "ndcg": {
+   "hybrid": 0.3402,
+   "vector": 0.29,
+   "text": 0.2512,
+   "textPlain": 0.2373,
+   "hybridPlain": 0.338
+  }
+ },
+ {
+  "commit": "e5b7917",
+  "time": "2026-10-24T04:06:04-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "hybrid": 0.289,
+   "vector": 0.145,
+   "text": 0.191,
+   "textPlain": 0.236,
+   "hybridPlain": 0.372
+  },
+  "ndcg": {
+   "hybrid": 0.3417,
+   "vector": 0.2923,
+   "text": 0.2496,
+   "textPlain": 0.238,
+   "hybridPlain": 0.3409
+  }
+ },
+ {
+  "commit": "8491b77",
+  "time": "2026-10-24T04:36:12-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "hybrid": 0.316,
+   "vector": 0.143,
+   "text": 0.184,
+   "textPlain": 0.222,
+   "hybridPlain": 0.377
+  },
+  "ndcg": {
+   "hybrid": 0.3417,
+   "vector": 0.2923,
+   "text": 0.2496,
+   "textPlain": 0.238,
+   "hybridPlain": 0.3409
+  }
+ },
+ {
+  "commit": "6acaf09",
+  "time": "2026-10-24T04:43:59-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "hybrid": 0.298,
+   "vector": 0.148,
+   "text": 0.202,
+   "textPlain": 0.262,
+   "hybridPlain": 0.332
+  },
+  "ndcg": {
+   "hybrid": 0.3417,
+   "vector": 0.2923,
+   "text": 0.2496,
+   "textPlain": 0.238,
+   "hybridPlain": 0.3409
+  }
+ },
+ {
+  "commit": "cd570dd",
+  "time": "2026-10-24T05:27:40-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "hybrid": 0.301,
+   "vector": 0.147,
+   "text": 0.195,
+   "textPlain": 0.26,
+   "hybridPlain": 0.33
+  },
+  "ndcg": {
+   "hybrid": 0.3397,
+   "vector": 0.2904,
+   "text": 0.2496,
+   "textPlain": 0.238,
+   "hybridPlain": 0.339
+  }
+ },
+ {
+  "commit": "39c4c1a",
+  "time": "2026-10-24T16:34:07-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "hybrid": 0.3,
+   "vector": 0.147,
+   "text": 0.128,
+   "textPlain": 0.26,
+   "hybridPlain": 0.33
+  },
+  "ndcg": {
+   "hybrid": 0.3406,
+   "vector": 0.2904,
+   "text": 0.2556,
+   "textPlain": 0.238,
+   "hybridPlain": 0.339
+  }
+ },
+ {
+  "commit": "37c7ed1",
+  "time": "2026-10-24T16:47:03-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "hybrid": 0.259,
+   "vector": 0.101,
+   "text": 0.128,
+   "textPlain": 0.282,
+   "hybridPlain": 0.339
+  },
+  "ndcg": {
+   "hybrid": 0.3406,
+   "vector": 0.2904,
+   "text": 0.2556,
+   "textPlain": 0.238,
+   "hybridPlain": 0.339
+  }
+ },
+ {
+  "commit": "77b3774",
+  "time": "2026-10-24T16:50:33-07:00",
+  "protocol": "legacy",
+  "p50": {
+   "hybrid": 0.26,
+   "vector": 0.104,
+   "text": 0.127,
+   "textPlain": 0.278,
+   "hybridPlain": 0.382
+  },
+  "ndcg": {
+   "hybrid": 0.3406,
+   "vector": 0.2904,
+   "text": 0.2556,
+   "textPlain": 0.238,
+   "hybridPlain": 0.339
+  }
+ },
+ {
+  "commit": "5d7903c",
+  "time": "2026-10-24T19:39:21-07:00",
+  "protocol": "beir-v2",
+  "p50": {
+   "hybrid": 0.375,
+   "vector": 0.101,
+   "text": 0.134,
+   "textPlain": 0.28,
+   "hybridPlain": 0.512
+  },
+  "ndcg": {
+   "hybrid": 0.3343,
+   "vector": 0.2904,
+   "text": 0.2556,
+   "textPlain": 0.238,
+   "hybridPlain": 0.3366
+  }
+ },
+ {
+  "commit": "bea700b",
+  "time": "2026-10-24T22:35:20-07:00",
+  "protocol": "beir-v2",
+  "p50": {
+   "hybrid": 0.378,
+   "vector": 0.109,
+   "text": 0.133,
+   "textPlain": 0.268,
+   "hybridPlain": 0.51
+  },
+  "ndcg": {
+   "hybrid": 0.3343,
+   "vector": 0.2904,
+   "text": 0.2556,
+   "textPlain": 0.238,
+   "hybridPlain": 0.3366
+  }
+ },
+ {
+  "commit": "65c3c0c",
+  "time": "2026-10-25T21:46:52-07:00",
+  "protocol": "beir-v2",
+  "p50": {
+   "hybrid": 0.294,
+   "vector": 0.122,
+   "text": 0.102,
+   "textPlain": 0.255,
+   "hybridPlain": 0.385
+  },
+  "ndcg": {
+   "hybrid": 0.3358,
+   "vector": 0.2904,
+   "text": 0.2556,
+   "textPlain": 0.238,
+   "hybridPlain": 0.3373
+  }
+ }
+]

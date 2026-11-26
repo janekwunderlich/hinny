@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>hinny</title>
+  <!-- The same mark as hinny-mark.svg. A tab has no text colour to inherit, so the icon sets its
+       own: dark on a light browser, light on a dark one, the eye in the other. -->
+  <style>
+    .m { fill: #0a0a0a; stroke: #0a0a0a; }
+    .s { fill: none; stroke: #0a0a0a; }
+    .e { fill: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .m { fill: #ffffff; stroke: #ffffff; }
+      .s { stroke: #ffffff; }
+      .e { fill: #0a0a0a; }
+    }
+  </style>
+  <path class="m" d="M32.5 11C31 8 29 5.8 26.5 4.5C22.5 9.5 22.3 17 26.1 24.1L33 20Z" stroke-width="3" stroke-linejoin="round" opacity="0.6"/>
+  <path class="s" d="M23.2 27.7L18.8 24.4M18.4 35.4L13.5 32.9M14.6 44.6L9.4 42.9M12.3 53.8L6.9 52.9" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+  <path class="m" d="M31 62C30.5 56.5 30.5 52.5 31.5 49C32.5 45.5 35.5 44 38.5 45.5L48 51C51 52.8 54.5 52.8 56.8 50.5C59.5 47.5 59 42.5 55.5 38.5C50.5 32.5 44.5 26.5 38.5 20.5C41.5 15 41.5 9 38 3.5C34 7 32 13 32 19C21.5 26.5 13 41.5 11.5 62Z" stroke-width="3" stroke-linejoin="round"/>
+  <ellipse class="e" cx="42.3" cy="31.5" rx="2.5" ry="3.1"/>
+</svg>

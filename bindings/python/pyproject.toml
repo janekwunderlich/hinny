@@ -1,0 +1,54 @@
+[build-system]
+requires = ["maturin>=1.15,<2"]
+build-backend = "maturin"
+
+[project]
+name = "hinny"
+# From Cargo.toml.
+dynamic = ["version"]
+description = "An embedded hybrid search database: full text (BM25), vectors and filters, in your process"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT OR Apache-2.0"
+license-files = ["LICENSE-MIT", "LICENSE-APACHE"]
+authors = [{ name = "Janek Wunderlich" }]
+keywords = ["search", "full-text", "vector", "hybrid", "bm25", "rag", "embedded", "database"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Rust",
+    "Topic :: Database",
+    "Topic :: Database :: Database Engines/Servers",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Indexing",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+# The tests and examples use NumPy; hinny itself takes any sequence of numbers.
+test = ["numpy>=1.24"]
+
+[project.urls]
+Homepage = "https://github.com/janekwunderlich/hinny"
+Repository = "https://github.com/janekwunderlich/hinny"
+Documentation = "https://github.com/janekwunderlich/hinny/tree/main/bindings/python"
+Issues = "https://github.com/janekwunderlich/hinny/issues"
+
+[tool.maturin]
+module-name = "hinny._hinny"
+python-source = "python"
+features = ["pyo3/extension-module"]
+profile = "python"
+strip = true
+# Built files never go into the source distribution.
+exclude = [{ path = "dist/**", format = "sdist" }, { path = "bindings/python/dist/**", format = "sdist" }]

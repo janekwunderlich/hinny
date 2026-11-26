@@ -1,0 +1,17 @@
+1000000 vectors × 256 dimensions, 1000 queries; written in 7.2 s, indexed in 11.2 s (1 segment(s)); segment 597 MB (512 MB of that full-precision vectors, in f16)
+exact (every vector at full precision): 20.24 ms per query
+nprobe auto: recall@10 0.999  p50 0.089 ms  p99 0.133 ms  codes scanned 0.3%  read at full precision 0.04% of the collection
+nprobe    1: recall@10 0.947  p50 0.082 ms  p99 0.127 ms  codes scanned 0.1%  read at full precision 0.04% of the collection
+nprobe    2: recall@10 0.996  p50 0.084 ms  p99 0.129 ms  codes scanned 0.2%  read at full precision 0.04% of the collection
+nprobe    4: recall@10 0.999  p50 0.088 ms  p99 0.131 ms  codes scanned 0.3%  read at full precision 0.04% of the collection
+nprobe    8: recall@10 0.999  p50 0.097 ms  p99 0.142 ms  codes scanned 0.7%  read at full precision 0.04% of the collection
+nprobe   16: recall@10 0.999  p50 0.115 ms  p99 0.157 ms  codes scanned 1.5%  read at full precision 0.04% of the collection
+nprobe   32: recall@10 0.999  p50 0.151 ms  p99 0.197 ms  codes scanned 2.9%  read at full precision 0.04% of the collection
+nprobe   64: recall@10 0.999  p50 0.225 ms  p99 0.271 ms  codes scanned 5.5%  read at full precision 0.04% of the collection
+nprobe  128: recall@10 0.999  p50 0.374 ms  p99 0.423 ms  codes scanned 10.6%  read at full precision 0.04% of the collection
+nprobe  256: recall@10 0.999  p50 0.677 ms  p99 0.724 ms  codes scanned 20.8%  read at full precision 0.04% of the collection
+nprobe  all: recall@10 0.999  p50 3.081 ms  p99 3.194 ms  codes scanned 100.0%  read at full precision 0.04% of the collection
+ 1 thread(s):   11305 searches a second (0.088 ms each)
+ 2 thread(s):   20311 searches a second (0.098 ms each)
+ 4 thread(s):   44580 searches a second (0.090 ms each)
+ 6 thread(s):   66756 searches a second (0.090 ms each)

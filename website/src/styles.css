@@ -1,0 +1,76 @@
+/* The only hand-written CSS: what StyleX has no place for. The fonts, a reset, and the page's
+   colour scheme. Everything else is StyleX: the tokens are in src/tokens.stylex.ts, the styles
+   beside the components that use them, and the build appends the CSS it generates to this file. */
+
+/* Geist and Geist Mono (SIL Open Font License 1.1, public/fonts/Geist-OFL.txt), served from here:
+   no third-party font requests. */
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/Geist-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMono-Variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* The reset sits in a cascade layer of its own, declared before StyleX's (vite.config.ts), so a
+   component's styles always win over it. */
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html {
+    color-scheme: light dark;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd,
+  ol,
+  ul,
+  pre {
+    margin: 0;
+  }
+  ol,
+  ul {
+    padding: 0;
+    list-style: none;
+  }
+  button {
+    font: inherit;
+    color: inherit;
+  }
+  a {
+    color: inherit;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

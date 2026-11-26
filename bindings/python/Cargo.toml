@@ -1,0 +1,18 @@
+[package]
+name = "hinny-python"
+version = "0.3.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Python bindings for hinny, an embedded hybrid search database"
+publish = false
+
+[lib]
+name = "_hinny"
+crate-type = ["cdylib"]
+
+[dependencies]
+hinny = { path = "../../crates/hinny" }
+# The stable ABI from Python 3.11 (the first with buffers in it, for zero-copy NumPy vectors):
+# one wheel for every later version.
+pyo3 = { version = "=0.29.3", features = ["extension-module", "abi3-py311"] }

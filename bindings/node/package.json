@@ -1,0 +1,36 @@
+{
+  "name": "hinny",
+  "version": "0.3.0",
+  "private": true,
+  "description": "An embedded hybrid search database: full-text search (BM25), vector search and typed attributes with filters, in your process",
+  "license": "MIT OR Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janekwunderlich/hinny.git",
+    "directory": "bindings/node"
+  },
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "native.js",
+    "*.node",
+    "LICENSE-MIT",
+    "LICENSE-APACHE"
+  ],
+  "napi": {
+    "binaryName": "hinny",
+    "targets": [
+      "aarch64-unknown-linux-gnu"
+    ]
+  },
+  "scripts": {
+    "build": "napi build --platform --profile node --js native.js --dts native.d.ts",
+    "build:debug": "napi build --platform --js native.js --dts native.d.ts",
+    "test": "node --test test/"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "3.10.12"
+  }
+}

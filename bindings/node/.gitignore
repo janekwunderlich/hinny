@@ -1,0 +1,8 @@
+node_modules/
+# Written by `npm run build`: the addon and the loader and types napi-rs generates for it.
+# (index.js and index.d.ts, the package's entry points, are written by hand.)
+*.node
+native.js
+native.d.ts
+# Cargo's output, when built without CARGO_TARGET_DIR outside the workspace.
+target/

@@ -1,0 +1,26 @@
+[package]
+name = "hinny-names"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Hinny names: names of everything under a folder in a memory-mapped column store, searched in milliseconds"
+publish = false
+
+[lib]
+name = "hinny_names"
+# rlib for Rust; staticlib with a C interface (include/hinny_names.h) for apps in Swift or C.
+crate-type = ["rlib", "staticlib"]
+
+[[bin]]
+name = "hinny-names"
+path = "src/main.rs"
+doc = false
+
+# Pinned to the versions in the local Cargo cache: builds offline.
+[dependencies]
+libc = "=0.2.186"
+memmap2 = "=0.9.8"
+rayon = "=1.11.0"
+memchr = "=2.8.3"
+

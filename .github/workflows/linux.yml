@@ -1,0 +1,59 @@
+# The engine on Linux, on x86_64 and on aarch64: its tests, the fault sweep, and the scale gate
+# (a million vectors: a search must stay near 1% of an exact scan; crates/hinny/tests/scale.rs).
+# Only the `hinny` crate: hinny-names is a Mac crate (see check.yml).
+#
+# Linux runners count a tenth of what macOS ones do. Runs on pull requests that touch the engine
+# and by hand; to run it on every push to main, add under `on:`
+#   push: { branches: [main], paths: ["crates/hinny/**", "Cargo.toml", "Cargo.lock"] }
+name: linux
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "crates/hinny/**"
+      - "crates/hinny-c/**"
+      - "bindings/node/**"
+      - "Cargo.toml"
+      - "Cargo.lock"
+      - ".github/workflows/linux.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: linux-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  engine:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rust toolchain
+        run: rustup update stable && rustup default stable && rustc --version
+      - name: Processor
+        run: grep -m1 -E 'model name|Features|flags' /proc/cpuinfo || true
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: cargo-${{ matrix.os }}-${{ hashFiles('Cargo.lock') }}
+      - name: Tests
+        run: cargo test --release -p hinny -p hinny-c
+      - name: C interface
+        run: sh crates/hinny-c/tests/run-c.sh
+      - name: Fault sweep
+        run: cargo test --release -p hinny --features failpoints --test faults --test fork
+      - name: Node binding
+        working-directory: bindings/node
+        run: npm ci && npm run build && npm test
+      - name: Scale gate (a million vectors)
+        run: cargo test --release -p hinny --test scale -- --ignored --nocapture

@@ -1,0 +1,6 @@
+lancedb
+chromadb
+qdrant-client
+sqlite-vec
+tantivy
+numpy

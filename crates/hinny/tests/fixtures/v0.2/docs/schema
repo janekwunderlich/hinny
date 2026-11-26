@@ -1,0 +1,6 @@
+fugudb schema 2
+text 2 plain title
+text 1 plain body
+int year
+string kind
+vector 8

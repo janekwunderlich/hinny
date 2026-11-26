@@ -1,0 +1,35 @@
+[workspace]
+resolver = "3"
+members = ["crates/hinny", "crates/hinny-c", "crates/hinny-json", "crates/hinny-server", "crates/hinny-replica", "crates/hinny-names", "bindings/python", "bindings/node"]
+# The Python extension builds with maturin (it links against the interpreter at load time), the
+# Node addon with `napi build` (it links against Node's symbols at load time).
+default-members = ["crates/hinny", "crates/hinny-c", "crates/hinny-names"]
+
+[workspace.package]
+edition = "2024"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/janekwunderlich/hinny"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+debug = "line-tables-only"
+
+# The Python wheel: a panic becomes a Python exception (PyO3 catches it) instead of ending the process.
+[profile.python]
+inherits = "release"
+panic = "unwind"
+
+# The Node addon: a panic becomes a JavaScript exception (its functions are `catch_unwind`) instead
+# of ending the process.
+[profile.node]
+inherits = "release"
+panic = "unwind"
+
+# The server: a panic in one request becomes that request's error (the task that ran it fails)
+# instead of ending the process and every other request with it.
+[profile.server]
+inherits = "release"
+panic = "unwind"

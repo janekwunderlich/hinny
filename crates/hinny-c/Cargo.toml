@@ -1,0 +1,22 @@
+[package]
+name = "hinny-c"
+version = "0.3.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "A C interface to hinny, for Swift, Kotlin, Node and anything else that can call C"
+publish = false
+
+[lib]
+name = "hinny_c"
+# A static library for apps that link hinny in (an iOS or Mac app), a shared one for loading at
+# run time (Node, the JVM, Python's ctypes), and an rlib for this crate's own tests.
+crate-type = ["rlib", "staticlib", "cdylib"]
+
+[dependencies]
+hinny = { path = "../hinny" }
+# Documents, queries and results cross the interface as JSON: one function per operation instead
+# of one per field, and every language can already read and write it.
+# The JSON forms (shared with the server) live in hinny-json.
+hinny-json = { path = "../hinny-json" }
+serde_json = "=1.0.149"

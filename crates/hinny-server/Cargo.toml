@@ -1,0 +1,30 @@
+[package]
+name = "hinny-server"
+version = "0.3.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Serves a hinny database directory over HTTP, in the JSON of the C interface"
+publish = false
+
+[lib]
+name = "hinny_server"
+
+[[bin]]
+name = "hinny-server"
+path = "src/main.rs"
+
+[dependencies]
+axum = "=0.8.9"
+hinny = { path = "../hinny" }
+hinny-json = { path = "../hinny-json" }
+hinny-replica = { path = "../hinny-replica" }
+# A file streamed as a response body (already in the tree, under axum).
+http-body = "=1.1.0"
+serde_json = "=1.0.149"
+tokio = { version = "=1.54.1", features = ["rt-multi-thread", "macros", "net", "signal", "fs"] }
+
+[dev-dependencies]
+http-body-util = "0.1.5"
+tokio = { version = "=1.54.1", features = ["sync", "io-util", "macros", "rt"] }
+tower = { version = "0.5.3", features = ["util"] }

@@ -1,0 +1,3 @@
+fugudb schema 2
+int n
+vector 16

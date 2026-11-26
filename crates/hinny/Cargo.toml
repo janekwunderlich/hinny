@@ -1,0 +1,43 @@
+[package]
+name = "hinny"
+version = "0.3.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "An embedded hybrid search database: full text (BM25), vectors and typed attributes with filters, live through a write-ahead log, segments and merges"
+publish = false
+
+[lib]
+name = "hinny"
+
+[[bin]]
+name = "text-bench"
+path = "src/bin/bench.rs"
+required-features = ["bench"]
+
+[features]
+# The file-name index (macOS): `hinny::names`.
+names = ["dep:hinny-names"]
+# Only the benchmark compares against Tantivy; the library itself depends on nothing heavy.
+bench = ["dep:tantivy"]
+# Named I/O failures for tests/faults.rs (`cargo test --features failpoints --test faults`).
+failpoints = []
+
+[dependencies]
+hinny-names = { path = "../hinny-names", optional = true }
+memmap2 = "=0.9.8"
+arc-swap = "=1.9.3"
+crc32fast = "=1.5.0"
+rayon = "=1.11.0"
+# Stemming (Snowball), for text fields with a language.
+rust-stemmers = "=1.2.0"
+# Stored text: blocks compressed with zstd.
+zstd = { version = "=0.14.3", default-features = false }
+tantivy = { version = "0.27", optional = true }
+
+[dev-dependencies]
+serde_json = "=1.0.149"
+
+[[test]]
+name = "faults"
+required-features = ["failpoints"]

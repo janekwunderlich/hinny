@@ -1,0 +1,21 @@
+[package]
+name = "hinny-node"
+version = "0.3.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Node.js bindings for hinny, an embedded hybrid search database"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+hinny = { path = "../../crates/hinny" }
+# Node-API: one binary for every Node version with N-API 6 (BigInt). `napi build` (@napi-rs/cli)
+# builds it and writes the loader.
+napi = { version = "=3.16.2", features = ["napi6"] }
+napi-derive = "=3.7.1"
+
+[build-dependencies]
+napi-build = "=2.6.0"
